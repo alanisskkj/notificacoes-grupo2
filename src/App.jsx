@@ -2,6 +2,9 @@ import { useState } from "react";
 import FilterBar from "./components/FilterBar";
 import NotificationList from "./components/NotificationList";
 import NovaNotificacaoForm from "./components/NovaNotificacaoForm";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 const notificacoesIniciais = [
   {
     id: 1,
@@ -39,6 +42,14 @@ function App() {
       <FilterBar filtroAtual={filtro} onFiltroChange={setFiltro} />
       <NotificationList notificacoesVisiveis={notificacoesVisiveis} />
     </div>
+  );
+}
+function App() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 export default App;
